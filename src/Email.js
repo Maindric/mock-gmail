@@ -12,13 +12,14 @@ class Email extends React.Component {
         this.state = {
             emails: [],
             displayEmail: {},
-            newEmail: false,
+            newEmail: true,
             searchLine: ""
         }
 
         this.changeEmail = this.changeEmail.bind(this);
         this.setSearch = this.setSearch.bind(this);
         this.executeSearch = this.executeSearch.bind(this);
+        this.newEmail = this.newEmail.bind(this);
     }  
 
     async componentDidMount() {
@@ -35,8 +36,15 @@ class Email extends React.Component {
 
     changeEmail(e) {
         this.setState({
-            displayEmail: this.state.emails[Number(e.target.id)]
+            displayEmail: this.state.emails[Number(e.target.id)],
+            newEmail: false
         });
+    }
+
+    newEmail() {
+        this.setState({
+            newEmail: true
+        })
     }
 
     setSearch(e) {
@@ -68,10 +76,11 @@ class Email extends React.Component {
         return (
             <div className="email">
                 <div className="emailList">
-                    <h1>EMAIL LIST</h1>
+                    <img src='https://media1.tenor.com/images/23aeaaa34afd591deee6c163c96cb0ee/tenor.gif' />
                     <form>
                         <input type="text" name="search" id="search" onChange={this.setSearch}/>
                         <input type="button" id="setSearch" value="Search" onClick={this.executeSearch} />
+                        <input type="button" id="newMail" value="New Mail" onClick={this.newEmail} />
                     </form>
                     {emailList}
                 </div>

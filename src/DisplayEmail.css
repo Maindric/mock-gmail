@@ -4,3 +4,16 @@
     max-height: 100%;
     background-color: lightgray;
 }
+
+.emailDisplay form {
+    margin:1%;
+}
+
+.emailDisplay input, textarea{
+    width: 100%;
+    max-width: auto;
+}
+
+.sendButton {
+    margin: 2px, 3px, 2px, 3px;
+}
